@@ -28,10 +28,11 @@
         input {
             width: 100%;
             padding: 12px;
-            margin: 20px 0;
+            margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 6px;
             font-size: 16px;
+            box-sizing: border-box;
         }
         button {
             background-color: #1a73e8;
@@ -42,9 +43,17 @@
             cursor: pointer;
             font-weight: bold;
             width: 100%;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #1557b0;
+        }
+        label {
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -52,23 +61,28 @@
 
 <div class="container">
     <h2>Sudga Chaqiruv</h2>
-    <p>Fuqaro ism-sharifini kiriting:</p>
-    <input type="text" id="fullname" placeholder="F.I.SH">
+    
+    <label>F.I.SH:</label>
+    <input type="text" id="fullname" placeholder="Masalan: Aliyev Vali">
+    
+    <label>Telefon raqami:</label>
+    <input type="text" id="phone" placeholder="+998 90 123 45 67">
+    
     <button onclick="generatePDF()">PDF YARATISH</button>
 </div>
 
 <script>
 function generatePDF() {
     const name = document.getElementById('fullname').value;
+    const phone = document.getElementById('phone').value;
     
-    if(!name) {
-        alert("Ism-sharifni kiriting!");
+    if(!name || !phone) {
+        alert("Iltimos, barcha maydonlarni to'ldiring!");
         return;
     }
 
-    // PDF kontenti (Manzil va modda matn ichiga qotirilgan)
     const content = `
-        <div style="padding: 25mm; font-family: 'Times New Roman', serif; line-height: 1.6;">
+        <div style="padding: 25mm; font-family: 'Times New Roman', serif; line-height: 1.6; color: #000;">
             <div style="text-align: center; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
                 O‘ZBEKISTON RESPUBLIKASI<br>
                 ICHKI ISHLAR VAZIRLIGI JAMOAT XAVFSIZLIGI DEPARTAMENTI
@@ -81,7 +95,8 @@ function generatePDF() {
 
             <h2 style="text-align: center; text-decoration: underline; margin-bottom: 35px;">RASMIY CHAQIRUV QOG‘OZI</h2>
             
-            <p><b>Fuqaro:</b> ${name.toUpperCase()}</p>
+            <p style="margin-bottom: 5px;"><b>Fuqaro:</b> ${name.toUpperCase()}</p>
+            <p style="margin-top: 0;"><b>Bog‘lanish uchun tel:</b> ${phone}</p>
             
             <p style="text-indent: 50px; text-align: justify; margin-top: 30px;">
                 Sizga shuni ma’lum qilamizki, aniqlangan huquqbuzarlik holati yuzasidan O‘zbekiston Respublikasining 
@@ -94,9 +109,9 @@ function generatePDF() {
                 huzuriga shaxsingizni tasdiqlovchi hujjat bilan kelishingiz talab etiladi.
             </p>
             
-            <div style="margin-top: 25px; padding: 10px; border: 1px solid #000; font-size: 13px;">
+            <div style="margin-top: 25px; padding: 15px; border: 1px solid #000; font-size: 13px; background-color: #f9f9f9;">
                 <b>DIQQAT:</b> MJtKning 194-moddasiga muvofiq, ichki ishlar organlari xodimining qonuniy talablarini 
-                bajarmaslik og'irroq ma'muriy jazoga sabab bo'ladi.
+                bajarmaslik qonuniy javobgarlikka sabab bo'ladi.
             </div>
 
             <div style="margin-top: 70px; display: flex; justify-content: space-between; align-items: center;">
@@ -110,7 +125,7 @@ function generatePDF() {
             </div>
             
             <div style="margin-top: 40px; text-align: center;">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=85x85&data=https://iiv.uz/id${Math.random()}" alt="QR">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=85x85&data=https://iiv.uz/verify/id${Math.random()}" alt="QR">
                 <p style="font-size: 10px; margin-top: 5px;">Hujjatning haqiqiyligini tekshirish uchun skanerlang</p>
             </div>
         </div>
