@@ -1,64 +1,78 @@
-// 3. PDF yaratish funksiyasi (Professional, Imzoli va Pechatli)
+// 3. Akademik/Rasmiy uslubdagi PDF yaratish funksiyasi
 function generatePDF(name, phone) {
     const element = document.createElement('div');
+    
+    // Hujjat tarkibi (Siz yuborgan rasmdagi uslubda)
     element.innerHTML = `
-        <div style="width: 794px; height: 1123px; padding: 60px; border: 20px solid #1a73e8; font-family: 'Times New Roman', serif; position: relative; box-sizing: border-box; background: white url('https://i.imgur.com/G5gE38O.png') center/contain no-repeat; /* O'rta fonda ANTI.V logotipi (Watermark) */">
+        <div style="width: 794px; padding: 80px; font-family: 'Times New Roman', serif; line-height: 1.5; color: #000; background: white; position: relative; box-sizing: border-box;">
             
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #1a73e8; padding-bottom: 20px; margin-bottom: 40px;">
-                <div style="font-weight: bold; font-size: 30px; color: #1a73e8; text-transform: uppercase;">ANTI.V INC.</div>
-                <div style="text-align: right; font-size: 12px; color: #5f6368;">
-                    ANTI.V Global Security HQ<br>
-                    Silicon Valley, CA 94025, USA<br>
-                    www.antiv.security
-                </div>
+            <div style="position: absolute; top: 35%; left: 15%; transform: rotate(-45deg); font-size: 80px; color: rgba(26, 115, 232, 0.05); font-weight: bold; pointer-events: none; z-index: 0;">
+                ANTI.V SECURITY
             </div>
 
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h1 style="color: #1a73e8; font-size: 40px; margin: 0; text-transform: uppercase;">SECURITY CERTIFICATE</h1>
-                <p style="font-size: 16px; color: #5f6368; margin: 5px 0;">Official Verification of Device Protection</p>
-                <div style="width: 100px; height: 3px; background-color: #1a73e8; margin: 20px auto;"></div>
-            </div>
-
-            <div style="font-size: 18px; line-height: 1.6; text-align: left; color: #202124;">
-                <p>This document officially confirms that the security of the device registered under the user account of **${name}** has been verified and is now under the comprehensive protection of ANTI.V Advanced Threat Defense systems.</p>
-                
-                <p>The device associated with the verified phone number **${phone}** has passed all security checks, including AI-driven behavioral analysis and known miner signature database scans. All vulnerabilities have been patched, and an encrypted tunnel (VPN) is actively securing external network traffic.</p>
-                
-                <p>The user, ${name}, is hereby granted a temporary license to utilize the full ANTI.V Security Suite for a duration of one (1) calendar year from the date of this certificate.</p>
-            </div>
-
-            <div style="background-color: #f1f3f4; padding: 20px; border-radius: 8px; margin: 40px 0; font-size: 14px; text-align: left; border-left: 5px solid #1a73e8;">
-                <b>Certificate Details:</b><br>
-                Status: Active & Protected<br>
-                Protection Level: Advanced (AI Module Active)<br>
-                Date & Time of Issue: ${new Date().toLocaleString('en-US')}<br>
-                Certificate ID: <b>AV${Math.floor(100000 + Math.random() * 900000)}</b>
-            </div>
-
-            <div style="position: absolute; bottom: 80px; left: 60px; right: 60px; display: flex; justify-content: space-between; align-items: flex-end;">
-                <div style="text-align: left; width: 300px;">
-                    <img src="https://i.imgur.com/gK96v73.png" alt="Signature" style="max-width: 150px; display: block; margin-bottom: 10px;"> <div style="border-top: 2px solid #5f6368; width: 100%; margin-bottom: 5px;"></div>
-                    <div style="font-size: 14px; color: #202124;">Dr. Evelyn Reed</div>
-                    <div style="font-size: 12px; color: #5f6368;">Chief Security Officer, ANTI.V Inc.</div>
+            <div style="position: relative; z-index: 1;">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 18pt; margin-bottom: 10px; text-transform: uppercase;">
+                        Mavzu: Elektron hujjat aylanish tizimlarining dunyo bozori va hozirgi bosqichdagi asosiy rivojlanish yo'nalishlari.
+                    </h2>
+                    <h3 style="font-size: 16pt; font-weight: normal; margin-top: 20px;">Reja:</h3>
                 </div>
 
-                <div style="position: relative; width: 150px; height: 150px;">
-                    <img src="https://i.imgur.com/KzXoA9y.png" alt="Official Seal" style="max-width: 100%; display: block; transform: rotate(-15deg); opacity: 0.9; position: absolute; top: 0; left: 0;"> </div>
-            </div>
+                <div style="margin-left: 40px; margin-bottom: 50px; font-size: 14pt;">
+                    <p>1. ELEKTRON HUJJAT AYLANISH TIZIMLARINING TUSHUNCHASI</p>
+                    <p>2. ZAMONAVIY BOSQICHDAGI ASOSIY ELEKTRON HUJJAT AYLANISH TIZIMLARI</p>
+                    <p>3. ELEKTRON HUJJAT AYLANISH TIZIMIDA QO'LLANILADIGAN XAVFSIZLIK STANDARTLARI</p>
+                </div>
 
-            <div style="position: absolute; bottom: 20px; left: 60px; right: 60px; text-align: center; font-size: 10px; color: #dadce0;">
-                ANTI.V Security Suite | Verification Document v3.1 | Authorized Use Only
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h3 style="font-size: 14pt; border-bottom: 1px solid #000; display: inline-block; padding-bottom: 2px;">
+                        Xulosa va litsenziya tasdiqnomasi
+                    </h3>
+                </div>
+
+                <div style="font-size: 12pt; text-align: justify; text-indent: 50px;">
+                    <p>
+                        Bugungi kunda axborot xavfsizligini ta'minlash global miqyosdagi dolzarb masalalardan biriga aylandi. 
+                        Ushbu hujjat orqali foydalanuvchi <b>${name}</b> (tel: ${phone}) tomonidan boshqarilayotgan qurilma 
+                        ANTI.V xavfsizlik tizimining so'nggi algoritmlari asosida to'liq tekshiruvdan o'tkazildi. 
+                    </p>
+                    <p>
+                        Tizimning hozirgi holati: <b>Himoyalangan</b>. Skanerlash natijasida barcha zararli paketlar va 
+                        shubhali jarayonlar bloklandi. Elektron hujjat aylanishining xavfsizligi xalqaro standartlarga 
+                        muvofiq ravishda kafolatlanadi.
+                    </p>
+                </div>
+
+                <div style="margin-top: 100px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="text-align: left;">
+                        <p style="margin: 0;">Mas'ul shaxs:</p>
+                        <p style="margin: 5px 0; font-style: italic; border-bottom: 1px solid #000; width: 200px;">
+                            (Signature / Imzo)
+                        </p>
+                        <p style="font-size: 10pt; color: #555;">Kiberxavfsizlik departamenti boshlig'i</p>
+                    </div>
+                    
+                    <div style="position: relative; width: 150px; height: 150px; border: 4px double #1a73e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: rotate(-10deg); color: #1a73e8; font-weight: bold; text-align: center; font-size: 10pt;">
+                        <div style="padding: 10px;">
+                            ANTI.V<br>OFFICIAL<br>SECURITY<br>CERTIFIED
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 60px; text-align: center; font-size: 10pt; color: #888; border-top: 1px solid #eee; padding-top: 10px;">
+                    Hujjat ID: AV-${Math.floor(100000 + Math.random() * 900000)} | Sana: ${new Date().toLocaleDateString()}
+                </div>
             </div>
         </div>
     `;
-    
-    // PDF format va sifatini sozlash (html2pdf.js uchun)
+
+    // PDF yuklash parametrlari
     const options = {
         margin: [0, 0, 0, 0],
-        filename: `ANTI-V_Certificate_${name}.pdf`,
-        image: { type: 'jpeg', quality: 1.0 },
-        html2canvas: { scale: 3, useCORS: true }, // Yuqori sifat va rasmlarni internetdan yuklash
-        jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' } // A4 o'lchami pxda
+        filename: `Xabarnoma_${name}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+        jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
     };
 
     html2pdf().from(element).set(options).save();
